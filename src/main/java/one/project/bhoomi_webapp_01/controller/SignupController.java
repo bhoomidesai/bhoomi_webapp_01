@@ -8,25 +8,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import one.project.bhoomi_webapp_01.dao.RegistrationDAO;
-import one.project.bhoomi_webapp_01.model.Registration;
+import one.project.bhoomi_webapp_01.dao.UserDAO;
+import one.project.bhoomi_webapp_01.model.User;
 @RequestMapping("/reg")
 @Controller
 public class SignupController {
 	@Autowired
-	RegistrationDAO r ;
+	UserDAO u ;
 	@RequestMapping(value = "/reg")
 	public String gotreg(Model model){
-		model.addAttribute("user", new Registration());
+		model.addAttribute("user", new User());
 		return "reg";
 	}
 
 	@PostMapping(value = "/in")
-	public String go(@ModelAttribute ("user") Registration user1,BindingResult bindingResult, Model model){
+	public String go(@ModelAttribute ("user") User user1,BindingResult bindingResult, Model model){
+	
+		u.insertUser(user1);	
 		
-		
-		r.insert(user1);	
-		
-		return "/reg";
+		return "/login";
 	}
 }

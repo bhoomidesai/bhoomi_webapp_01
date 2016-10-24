@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import one.project.bhoomi_webapp_01.model.User;
 
 @Entity
 @Table
@@ -24,8 +25,14 @@ public class BillAdd {
 	int pin;
 	@OneToOne
 	@JoinColumn(name="reg_id")
-	private Registration id;
+	private User id;
 	
+	public User getId() {
+		return id;
+	}
+	public void setId(User id) {
+		this.id = id;
+	}
 	public int getBid() {
 		return bid;
 	}

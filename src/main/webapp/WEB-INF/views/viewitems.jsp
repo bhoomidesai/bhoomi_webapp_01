@@ -17,16 +17,16 @@
 				<th ng-click="orderByMe('price')">Price</th>
 				<th ng-click="orderByMe('Supplier')">Suppier</th>
 				
-							<th align="center">View Edit Delete Add To Cart</th>
+							<th align="center"> View &#160; &#160; &#160; &#160; Add To Cart</th>
 						</tr>
 						<tr ng-repeat="x in names | orderBy:myOrderBy | filter:test">
-				<td align="center">{{x.id}}</td>
-				<td align="center">{{x.name}}</td>
-				<td align="center">{{x.desc}}</td>
-				<td align="center">{{x.price}}</td>
-				<td align="center">{{x.Supplier}}</td>
+				<td >{{x.id}}</td>
+				<td >{{x.name}}</td>
+				<td >{{x.desc}}</td>
+				<td >{{x.price}}</td>
+				<td >{{x.supplier}}</td>
 							<td><a href="${cp }/xplor/{{x.id}}"><button class="button button1">View</button></a>
-							 <a href="${cp }/add" id="iphn"><button class="button button5">Add To Cart</button></a></td>
+							 <a href="${cp }/cart/addto/{x.id}" id="iphn"><button class="button button5">Add To Cart</button></a></td>
 						</tr>
 					</table>
 				</div>

@@ -10,10 +10,9 @@ import javax.validation.constraints.NotNull;
 
 import org.apache.commons.fileupload.MultipartStream;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-
-
 public class ProductModel {
 	@Id
 	@Column(name="id")
@@ -26,12 +25,10 @@ public class ProductModel {
 	int price;
 	@NotEmpty(message="required")
 	String desc;
-	@NotEmpty(message="requried")
-	String pic;
 	@NotEmpty(message="required")
-	String Supplier;
+	String supplier;
 	@Transient
-	MultipartStream file;
+	MultipartFile file;
 	public int getId() {
 		return id;
 	}
@@ -58,29 +55,22 @@ public class ProductModel {
 	}
 	
 	public String getSupplier() {
-		return Supplier;
+		return supplier;
 	}
 	public void setSupplier(String supplier) {
-		Supplier = supplier;
+		supplier = supplier;
 	}
 	
-	public String getPic() {
-		return pic;
-	}
-	public void setPic(String pic) {
-		this.pic = pic;
-	}
-	
-	public MultipartStream getFile() {
+	public MultipartFile getFile() {
 		return file;
 	}
-	public void setFile(MultipartStream file) {
+	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
 	@Override
 	public String toString() {
 		return "ProductModel [id=" + id + ", name=" + name + ", price=" + price + ", desc=" + desc + ", Supplier="
-				+ Supplier + "]";
+				+ supplier + "]";
 	}
 	
 }

@@ -5,26 +5,32 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import one.project.bhoomi_webapp_01.dao.CategoryDAO;
 import one.project.bhoomi_webapp_01.dao.ProductDAO;
+import one.project.bhoomi_webapp_01.model.Categories;
 import one.project.bhoomi_webapp_01.model.ProductModel;
+import one.project.bhoomi_webapp_01.model.User;
 @RequestMapping("/admin")
 @Controller
 public class AdminController {
 	
 	@Autowired
 	private ProductDAO p;
+	private CategoryDAO c;
 	
 	@RequestMapping(value = "/delete/{id}")
 	public String deletedata(@PathVariable("id") Integer st) {
@@ -56,7 +62,7 @@ public class AdminController {
 			
 			String originalfile = file.getOriginalFilename();
 			
-			String filepath = request.getSession().getServletContext().getRealPath("/resources/images/productimages/");
+			String filepath = request.getSession().getServletContext().getRealPath("/resources/images/product/");
 	
 			System.out.println("Path of file "+filepath);
 			String filename = filepath + "\\" + product.getId() + ".jpg";
@@ -84,5 +90,19 @@ public class AdminController {
 		model.addAttribute("product", p.getById(id));
 		model.addAttribute("products", p.getAll());
 		return "admin";
+	}
+	// for categories
+	@RequestMapping(value = "/cat")
+	public String gotreg(Model model){
+		model.addAttribute("c1", new Categories());
+		return "redirect:/admin/cat";
+	}
+
+	@PostMapping(value = "/addcat")
+	public String go(@ModelAttribute ("c1") Categories user1,BindingResult bindingResult, Model model){
+	
+		c.insert(user1);	
+		
+		return "redirect:/admin/cat";
 	}
 }

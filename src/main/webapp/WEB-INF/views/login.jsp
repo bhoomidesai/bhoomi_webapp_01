@@ -1,26 +1,33 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
  <%@ include file="head.jsp" %>
+ 
+<form class="form-signin" >
+<div class="container">
+    		<h3>Please Login</h3>
+    		<hr/>
+        <div class="row">
+        		<%-- Login form code --%>
+        		<div class="col-md-offset-2 col-md-8">
+			   <div class="form-group">
+		        <label for="inputEmail" class="sr-only">Email address</label>
+		        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>			   
+			   </div>
+			   <div class="form-group">			   
+		        <label for="inputPassword" class="sr-only">Password</label>
+		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		       </div>
+		       <div class="form-group">
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" value="remember-me"> Remember me
+		          </label>
+		        </div>
+		        </div>
+		        <button class="btn btn-sm btn-primary" type="submit">Sign in</button>
+		      </form>
 
-<div class="container" align="center"><br/><br/>
-	<div class="panel panel-default" style="hight: 100px; width: 40%;">
-		<div class="panel-heading" align="center">
-			<b>Login</b>
-		</div>
-		<div class="panel-body">
-			 <input class="form-control"
-				id="ex3" type="text" placeholder="Username" style="hight: 100px; width: 100%;">
-		</div>
-		<div class="panel-body">
-			 <input class="form-control"
-				id="ex3" type="password" placeholder="Password" style="hight: 100px; width: 100%;">
-		</div>
-		<div class="panel-body">
-			 <a><href src="<c:url value="${cp}/login" />" class="btn btn-primary btn-md">Login</href></a>
-		</div>
-	</div>
-</div>
+</form>
 <%@ include file="foot.jsp" %>
 
 

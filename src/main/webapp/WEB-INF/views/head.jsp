@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
-<script src="/resources/js/angular.min.js"></script>
+<script src="${cp }/resources/js/angular.min.js"></script>
 <script src="${js}/jquery.min.js"></script>
 <script src="${js}/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${css}/bootstrap.min.css" />
@@ -37,6 +37,21 @@
       <li><a href="${cp }/contact">Contact us</a></li>
       <li><a href="${cp }/about">About us</a></li> 
       <li><a href="${cp }/viewlist">view all</a></li>
+      
+<li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="${cp }/viewlist/iphone">iPhone</a></li>
+          <li><a href="${cp }/viewlist/ipad">iPad</a></li>
+          <li><a href="${cp }/viewlist/mac">Macbook</a></li> 
+        </ul>
+      </li>
+  	
+      
+      
+      <!-- code for security -->
+      
       <li><a href="${cp }/admin/viewall">Admin</a></li>
       <li><a href="${cp }/">Logout</a></li>
       
