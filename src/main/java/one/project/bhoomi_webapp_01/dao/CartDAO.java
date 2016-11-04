@@ -1,15 +1,20 @@
+
 package one.project.bhoomi_webapp_01.dao;
 
-import java.util.List;
+import java.io.IOException;
 
 import one.project.bhoomi_webapp_01.model.Cart;
 
+public interface CartDao {
 
-public interface CartDAO {
-	public List<Cart> getAll();
-	public void insert(Cart p);
-	public void update(Cart p);
-	public Cart getById(int id);
-	public void delete(int id);
+
+    Cart getCartById(int cartId);
+
+    Cart validate(int cartId) throws IOException;
+
+    void update(Cart cart);
+   
+    
+
 
 }

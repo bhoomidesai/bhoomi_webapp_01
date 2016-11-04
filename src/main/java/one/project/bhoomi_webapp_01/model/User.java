@@ -1,28 +1,75 @@
 package one.project.bhoomi_webapp_01.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class User {
+public class User  {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
+	@Column(name="uid")
 	private int uid;
-	private String name;	
+	@NotNull@NotEmpty(message="plz enter name")
+	@Column(name="name")
+	private String name;
+	@NotNull@NotEmpty(message="plz enter email")
+	@Column(unique = true,name="email")
 	private String email;
+	@NotNull@NotEmpty(message="plz enter password")
+	@Column(name="password")
 	private String password;
-	private boolean enabled=false;
-	private String role;
 	
-	public boolean getEnabled() {
+	
+	@Column(name = "enabled")
+	private boolean enabled;
+	/*--------CART-----*/
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private Cart cart;
+	
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	/*---------Billing address----*/
+	
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private  BillingAddress billingAddress;
+	public BillingAddress getBillingAddress() {
+		return billingAddress;
+	}
+	public void setBillingAddress(BillingAddress billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+	
+	/*-------Shipping Address----*/
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private  ShippingAddress shippingAddress;
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+	public boolean isEnabled() {
 		return enabled;
 	}
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+	@Column(name = "role")
+	private String role;
+
 	public String getRole() {
 		return role;
 	}
@@ -53,5 +100,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
 
 }

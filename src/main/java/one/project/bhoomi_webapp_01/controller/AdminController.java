@@ -14,24 +14,21 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import one.project.bhoomi_webapp_01.dao.CategoryDAO;
 import one.project.bhoomi_webapp_01.dao.ProductDAO;
 import one.project.bhoomi_webapp_01.model.Categories;
 import one.project.bhoomi_webapp_01.model.ProductModel;
-import one.project.bhoomi_webapp_01.model.User;
 @RequestMapping("/admin")
 @Controller
 public class AdminController {
 	
 	@Autowired
-	private ProductDAO p;
-	private CategoryDAO c;
-	
+	ProductDAO p;
+/*	private CategoryDAO c;
+*/	
 	@RequestMapping(value = "/delete/{id}")
 	public String deletedata(@PathVariable("id") Integer st) {
 		p.delete(st);	
@@ -58,29 +55,31 @@ public class AdminController {
 			p.insert(product);
 			
 			
-			MultipartFile file = (MultipartFile) product.getFile();
-			
+			MultipartFile file = product.getFile();
+
 			String originalfile = file.getOriginalFilename();
-			
+
 			String filepath = request.getSession().getServletContext().getRealPath("/resources/images/product/");
-	
-			System.out.println("Path of file "+filepath);
+
+			System.out.println("Path of file " + filepath);
 			String filename = filepath + "\\" + product.getId() + ".jpg";
-			System.out.println("File Path File "+filepath);
-			
+			System.out.println("File Path File " + filepath);
+
 			try {
-				byte imagebyte[] = ((MultipartFile) product.getFile()).getBytes();
+				byte imagebyte[] = product.getFile().getBytes();
 				BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(filename));
 				fos.write(imagebyte);
 				fos.close();
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 		} else {
+
 			p.update(product);
 		}		
 		return "redirect:/admin/viewall";
@@ -92,17 +91,17 @@ public class AdminController {
 		return "admin";
 	}
 	// for categories
-	@RequestMapping(value = "/cat")
+	@RequestMapping(value = "/addc")
 	public String gotreg(Model model){
 		model.addAttribute("c1", new Categories());
-		return "redirect:/admin/cat";
+		return "addcategory";
 	}
 
-	@PostMapping(value = "/addcat")
+	/*@PostMapping(value = "/addcat")
 	public String go(@ModelAttribute ("c1") Categories user1,BindingResult bindingResult, Model model){
 	
 		c.insert(user1);	
 		
-		return "redirect:/admin/cat";
-	}
+		return "category";
+	}*/
 }

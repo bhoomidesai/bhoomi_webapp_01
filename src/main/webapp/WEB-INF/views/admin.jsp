@@ -4,11 +4,8 @@
 <%@ include file="head.jsp"%>
 
 
-<form:form method="Post" action="${cp}/admin/insert"
-	modelAttribute="product" enctype="multipart/form-data">
-
-	<form:errors path="*"/>
-
+<form:form method="post" action="${cp}/admin/insert" modelAttribute="product" enctype="multipart/form-data">
+ 
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<B>${pro} Product Details</B>
@@ -17,27 +14,32 @@
 			<table class="table table-responsive" align="center">
 				<tr>
 					<td><form:label path="name">Product Name</form:label></td>
-					<td><form:input path="name" cssClass="error" />
-					<form:hidden path="id" />
-					</td>
-					<td><span><form:errors path="name" cssclass="error" /></span></td>
+				<td><form:input path="name" cssClass="error" />
+ 		<form:hidden path="id" />
+					
+				 	<td><span><form:errors path="name" cssclass="error" /></span></td> 
 
 				</tr>
 				<tr>
-					<td><form:label path="desc">Version</form:label></td>
-					<td><form:input path="desc" cssClass="error" /></td>
+					<td><form:label path="desc">Version Details</form:label></td>
+					<td><form:input path="desc" /></td>
 					<td><span><form:errors path="desc" cssclass="error" /></span>
-				</tr>
+			 	</tr>
+				<tr>
+					<td><form:label path="quantity">Quantity</form:label></td>
+					<td><form:input path="quantity" /></td>
+					<td><span><form:errors path="quantity" cssclass="error" /></span>
+			 	</tr>
 				<tr>
 					<td><form:label path="price">Price</form:label></td>
-					<td><form:input path="price" cssClass="error" /></td>
+					<td><form:input path="price" /></td>
 					<td><span><form:errors path="price" cssclass="error" /></span>
-				</tr>
-				<tr>
-					<td><form:label path="Supplier">Supplier</form:label></td>
-					<td><form:input path="Supplier" cssClass="error" />
-					<td><span><form:errors path="Supplier" cssclass="error" /></span></td>
-				</tr>
+ 				</tr>
+			<tr>
+					<td><form:label path="supplier">Supplier</form:label></td>
+					<td><form:input path="supplier"  />
+					<td><span><form:errors path="supplier" cssclass="error" /></span></td>
+ </tr> 
 				<tr>
 					<td><form:label path="file">Upload image</form:label></td>
 					<td><form:input path="file" type="file" class="form-control"
@@ -63,6 +65,7 @@
 			<th>Name</th>
 			<th>Version</th>
 			<th>Price</th>
+			<th>Quantity</th>
 			<th>Image</th>
 			<th align="center">Edit Delete</th>
 		</tr>
@@ -70,8 +73,9 @@
 			<tr>
 				<td>${product.id}</td>
 				<td>${product.name}</td>
-				<td>${product.price}</td>
 				<td>${product.desc}</td>
+				<td>${product.price}</td>
+				<td>${product.quantity}</td>
 				<td><img src="${product}/${product.id}.jpg"
 					alt="${product.name}" /></td>
 

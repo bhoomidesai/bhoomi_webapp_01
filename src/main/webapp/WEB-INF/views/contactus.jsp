@@ -46,7 +46,7 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                               <button class="button button2">View</button>
+                               <button class="button button2">Submit</button>
                             </div>
                         </div>
                     </fieldset>
@@ -74,5 +74,13 @@
         </div>
     </div>
 
-<%@ include file="foot.jsp" %>
+<div class="footer navbar-fixed-bottom">
+  <ul class="pager">
+    <li><a href="${cp }/about">About us</a></li>
+		<li>@ all rights reserved 2016</li>
+    <li><a href="${cp }/">Home</a></li>
+  </ul>
+</div>
 
+</body>
+</html>

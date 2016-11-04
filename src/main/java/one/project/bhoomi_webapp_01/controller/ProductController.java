@@ -29,4 +29,6 @@ public class ProductController
 		model.addAttribute("product", p.getById(id));
 		return "redirect:/viewdetail";
 	}
+	
+	
 }

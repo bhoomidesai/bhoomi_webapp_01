@@ -25,19 +25,18 @@
 					</div>
 
 					<div class="form-group">
-						<form:input path="name" class="form-control"
-							placeholder="User Name" required="required" />
-						<form:errors path="name" style="color:red;" />
+						<form:input path="name" class="form-control" placeholder="User Name" />
+						<span><form:errors path="name" cssclass="error" style="color:red;" /></span>
 					</div>
 					<div class="form-group">
 						<form:input path="email" type="email" class="form-control"
-							placeholder="User email" required="required" />
-						<form:errors path="email" style="color:red;" />
+							placeholder="User email" />
+						<span><form:errors path="email" cssclass="error" style="color:red;" /></span>
 					</div>
 					<div class="form-group">
 						<form:input path="password" type="password" class="form-control"
-							placeholder="User Password" required="required" />
-						<form:errors path="password" style="color:red;" />
+							placeholder="User Password" />
+						<span><form:errors path="password" cssclass="error" style="color:red;" /></span>
 					</div>
 					<div class="form-group">
 						<form:hidden path="enabled" value="true" />

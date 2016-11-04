@@ -19,13 +19,15 @@ public class ProductModel {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	public
 	int id;
-	@NotEmpty(message="required")
+	@NotEmpty(message="name required")
 	String name;
-	@NotNull(message="required")
+	@NotNull(message="price required")
 	int price;
-	@NotEmpty(message="required")
+	@NotEmpty(message="Version detail required")
 	String desc;
-	@NotEmpty(message="required")
+	@NotNull(message="Quantity required")
+	int quantity;
+	@NotEmpty(message="supplier required")
 	String supplier;
 	@Transient
 	MultipartFile file;
@@ -34,6 +36,13 @@ public class ProductModel {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	public String getName() {
 		return name;

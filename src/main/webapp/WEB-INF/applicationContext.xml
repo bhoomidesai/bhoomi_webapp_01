@@ -21,6 +21,8 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="password" value="" />
 	</bean>
 
+
+
 	<!-- ref is used to refer to a bean by its id -->
 
 	<bean id="sessionFactory"
@@ -44,19 +46,18 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<tx:annotation-driven />
 
-	<!-- dto related beans -->
 	<bean id="p" class="one.project.bhoomi_webapp_01.dao.ProductDAOImpl" />
 	<bean id="u" class="one.project.bhoomi_webapp_01.dao.UserDAOImpl" />
 	<bean id="c" class="one.project.bhoomi_webapp_01.dao.CategoryDAOImpl" />
-	<bean id="b" class="one.project.bhoomi_webapp_01.dao.BillImpl" />
-	<bean id="cr" class="one.project.bhoomi_webapp_01.dao.CartImpl" />
-	<bean id="s" class="one.project.bhoomi_webapp_01.dao.ShipImpl" />
-
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<bean id="cartdao" class="one.project.bhoomi_webapp_01.dao.CartDaoImpl" />
+	<bean id="user" class="one.project.bhoomi_webapp_01.dao.UserDAOImpl" />
+	<bean id="custo" class="one.project.bhoomi_webapp_01.dao.CustomerOrderDaoImpl" />
+	<bean id="cartitemdao" class="one.project.bhoomi_webapp_01.dao.CartItemDaoImpl" />
+	<bean id="bill" class="one.project.bhoomi_webapp_01.dao.BillDAOImpl" />
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
 		<!-- setting maximum upload size -->
 		<property name="maxUploadSize" value="100000" />
-
 	</bean>
 </beans>

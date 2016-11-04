@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 <%@ include file="head.jsp"%>
-
+<form:form method="POST" action="${cp}/addcat" modelAttribute="user">
 <div class="container">
 	<!-- container start -->
 	<div class="row">
@@ -18,9 +18,6 @@
 				<h3 class="text-center">
 					<i class="fa fa-lock"></i>Add category
 				</h3>
-
-<form:form method="POST" action="${cp}/addcat" modelAttribute="user">
-
 					<div class="form-group">
 						<form:hidden path="cid" />
 					</div>

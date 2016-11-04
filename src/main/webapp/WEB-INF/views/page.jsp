@@ -1,7 +1,7 @@
     <%@ include file="head.jsp" %>
     <div id="myContainer"
 	style="height: 500px; width: 100%; overflow: hidden; cursor: pointer">
-	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -70,5 +70,13 @@
 				</div></li>
 	</ul>
 </div>
-<%@ include file="foot.jsp" %>
+<div">
+  <ul class="pager">
+    <li><a href="${cp }/about">About us</a></li>
+		<li>@ all rights reserved 2016</li>
+    <li><a href="${cp }/contact">contact us</a></li>
+  </ul>
+</div>
 
+</body>
+</html>

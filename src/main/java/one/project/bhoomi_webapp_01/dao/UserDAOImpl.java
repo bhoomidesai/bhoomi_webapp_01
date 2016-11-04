@@ -1,29 +1,57 @@
 package one.project.bhoomi_webapp_01.dao;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import one.project.bhoomi_webapp_01.model.User;
+
+import one.project.bhoomi_webapp_01.model.*;
 
 @Transactional
-	public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl implements UserDAO{
 
-		@Autowired
-		private SessionFactory session;
+	@Autowired
+	private SessionFactory session;
+	
+	@Override
+	public void insertUser(User user) {
+		
+		Cart cart = new Cart();
+		cart.setGrandTotal(0);
+		cart.setUser(user);
+		user.setCart(cart);
+		
+		session.getCurrentSession().persist(user);
+		
+	}
 
-		@Override
-		public void insertUser(User user) {
-			session.getCurrentSession().persist(user);
+	@Override
+	public User getUserDetails(String userid) {			
+		User user = session.getCurrentSession().get(User.class, new String(userid));	
+		return user;
+		
+	}
 
-		}
+	@Override
+	public User getUById(int customerId) {
+		// TODO Auto-generated method stub
+		User u = session.getCurrentSession().get(User.class, new Integer(customerId));
+		return  u;
+	}
 
-		@Override
-		public User getUserDetails(String userid) {
+	@Override
+	public List<User> getAllCustomers() {
+		return session.getCurrentSession().createQuery("from User").list();
+	}
 
-			User user = session.getCurrentSession().get(User.class, new String(userid));
-			return user;
-
-		}
-
+	@Override
+	public User getCustomerByUsername(String username) {
+		Query query = session.getCurrentSession().createQuery("from User WHERE email=?");
+		query.setParameter(0, username);
+		return (User)query.getSingleResult();
+	}
+	
 
 }
