@@ -28,9 +28,9 @@
 				<td >{{x.quantity}}</td>
 				<td >{{x.price}}</td>
 				<td >{{x.supplier}}</td>
-<%-- 				<td><img src="/${img}/{{x.id}}.jpg" alt=${{x.id}} style="height: 70px;padding:1%; width: 70%; overflow: hidden; cursor: pointer"></td>				
- --%>				<td><a href="${cp }/viewdetail/{{x.id}}"><button class="button button1">View</button></a>
-				<td ng-controller="cartCtrl"><button type="button" class="button button5" ng-click="addToCart('Product Successfully added to your Cart')">ADD TO CART</button>						
+				<td><a href="${cp }/viewdetail/{{x.id}}"><button class="button button1">View</button></a>
+				<td ng-controller="cartCtrl"><button type="button" class="button button5" >
+				ADD TO CART</button>						
 				</td>
 		 		</tr>
 				</table>

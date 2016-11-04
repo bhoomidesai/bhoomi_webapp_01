@@ -28,17 +28,17 @@ app.controller("cartCtrl", function($scope, $http) {
 		$scope.refreshCart(cartId);
 	};
 
-	$scope.addToCart = function(id) {
+	$scope.addToCart = function(productId) {
 		alert(id);
-		$http.put('/bhoomi_webapp_01/customer/rest/cart/add/' + id).success(
+		$http.put('/bhoomi_webapp_01/customer/rest/cart/add/' + productId).success(
 				function() {
 					//quantity=quantity-1;
 					alert('Product successfully added to the cart!');
 				});
 	};
 
-	$scope.removeFromCart = function(id) {
-		$http.put('/bhoomi_webapp_01/customer/rest/cart/remove/' + id).success(
+	$scope.removeFromCart = function(productId) {
+		$http.put('/bhoomi_webapp_01/customer/rest/cart/remove/' + productId).success(
 				function(data) {
 					$scope.refreshCart();
 				});
