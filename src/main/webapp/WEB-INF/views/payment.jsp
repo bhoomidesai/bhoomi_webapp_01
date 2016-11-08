@@ -47,7 +47,8 @@
 				</div>
 				<div class='form-row'>
 					<div class='col-md-12' align="center">
-						<a href="${cp }/cart/ty" class="button button1">Pay</a>
+					<input type="submit" value="Pay" class="btn btn-default" name="_eventId_orderConfirmed" />
+						<%-- <a href="${cp }/cart/ty" class="button button1">Pay</a> --%>
 						<span class='amount'></span>
 						<div class='form-row'></div>
 					</div>

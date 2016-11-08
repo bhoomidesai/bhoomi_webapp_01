@@ -46,6 +46,7 @@ public class CartResources {
     public void addItem (@PathVariable(value = "productId") int productId, Principal principal){
         User customer = user.getCustomerByUsername(principal.getName());
         Cart cart = customer.getCart();
+        
         ProductModel product = p.getById(productId);
         List<CartItem> cartItems = cart.getCartItems();
 

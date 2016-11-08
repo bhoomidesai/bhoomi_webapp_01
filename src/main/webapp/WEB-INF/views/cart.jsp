@@ -19,6 +19,11 @@
                 <div>
                     <a class="button button1" ng-click = "clearCart()" > Clear Cart</a>
                     <a href="${cp }/cart/shipping" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a>
+                    <button type="submit" name="_eventId_submit" class="btn btn-success"> Checkout web <span class="glyphicon glyphicon-play"></span>
+                        </button>
+				
+								<a href="ckeckout">View Cart</a>
+				
                 </div>
 			<br/>
 			<br/>
@@ -31,8 +36,8 @@
                         <th>Action</th>
                     </tr>
                     <tr ng-repeat = "item in cart.cartItems">
-                        <td>{{item.product.productName}}</td>
-                        <td>{{item.product.productPrice}}</td>
+                        <td>{{item.product.name}}</td>
+                        <td>{{item.product.price}}</td>
                         <td>{{item.quantity}}</td>
                         <td>{{item.totalPrice}}</td>
                         <td><a href="#" class="button button3" ng-click="removeFromCart(item.product.id)">Delete</td>

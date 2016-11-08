@@ -7,7 +7,7 @@ app.controller('myCtrl', function($scope, $http) {
     });
     $scope.orderByMe = function(x) {
         $scope.myOrderBy = x;
-    }
+    }  //you wait 5 min
 });
 app.controller("cartCtrl", function($scope, $http) {
 
@@ -25,11 +25,12 @@ app.controller("cartCtrl", function($scope, $http) {
 
 	$scope.initCartId = function(cartId) {
 		$scope.cartId = cartId;
+		//alert("this is " + cartId);
 		$scope.refreshCart(cartId);
 	};
 
 	$scope.addToCart = function(productId) {
-		alert(id);
+		//alert(productId);
 		$http.put('/bhoomi_webapp_01/customer/rest/cart/add/' + productId).success(
 				function() {
 					//quantity=quantity-1;

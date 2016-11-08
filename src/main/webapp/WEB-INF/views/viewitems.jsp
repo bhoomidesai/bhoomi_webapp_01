@@ -29,7 +29,7 @@
 				<td >{{x.price}}</td>
 				<td >{{x.supplier}}</td>
 				<td><a href="${cp }/viewdetail/{{x.id}}"><button class="button button1">View</button></a>
-				<td ng-controller="cartCtrl"><button type="button" class="button button5" >
+				<td ng-controller="cartCtrl"><button type="button" class="button button5" ng-click="addToCart(x.id)">
 				ADD TO CART</button>						
 				</td>
 		 		</tr>

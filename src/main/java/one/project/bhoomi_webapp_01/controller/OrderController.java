@@ -12,7 +12,7 @@ import one.project.bhoomi_webapp_01.model.*;
 public class OrderController {
 
    @Autowired
-    CartDao cartdao;
+   CartDao cartdao;
 
    CustomerOrderDao custo;
 
@@ -22,16 +22,12 @@ public class OrderController {
         CustomerOrder customerOrder = new CustomerOrder();
         Cart cart = cartdao.getCartById(cartId);
         customerOrder.setCart(cart);
-
         User customer = cart.getUser();
         customerOrder.setUser(customer);
         customerOrder.setBillingAddress(customer.getBillingAddress());
         customer.setShippingAddress(customer.getShippingAddress());
-
         custo.addCustomerOrder(customerOrder);
-
         return "redirect:/checkout?cartId=" + cartId;
-
     }
 
 } // The End of Class;

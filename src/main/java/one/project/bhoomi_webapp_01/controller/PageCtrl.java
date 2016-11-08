@@ -46,13 +46,13 @@ public class PageCtrl
 		
 		return view;
 	}
-	@RequestMapping(value={"/cart"})
+	/*@RequestMapping(value={"/cart"})
 	public ModelAndView productde()
 	{
 	ModelAndView view = new ModelAndView();
 		view.setViewName("cart");
 		return view;
-	}
+	}*/
 	/*@RequestMapping(value={"/xplor/{id}"})
 	public ModelAndView viewbyid(@PathVariable("id") String id)
 	{

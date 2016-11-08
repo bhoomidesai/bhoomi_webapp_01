@@ -32,8 +32,8 @@
 					</div>
 
 					<div class="form-group" align="center">
-						<input type="submit" class="btn btn-primary btn-md btn-block"
-							value="Continue">
+					<input type="submit" value="Continue" class="btn btn-primary btn-md btn-block" name="_eventId_shippingDetailCollected" />
+
 					</div>
 
 				</form:form>
