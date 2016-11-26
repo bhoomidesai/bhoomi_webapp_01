@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow xmlns="http://www.springframework.org/schema/webflow"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.springframework.org/schema/webflow 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
-	<!-- Executed when webFlow is triggered -->
-	<!-- <on-start>
-	  <evaluate expression="demohandler.initFlow()" result="flowScope.userBean"/>
-	</on-start> -->
+	<on-start>
+		<evaluate expression="cartResources.initFlow()" result="flowScope.cart" />
+		<evaluate expression="addressController.getAddress()" result="flowScope.billingAddress" />
+	</on-start> 
 
-	 <!-- if not specified the first view state is the starting state -->
-	 <view-state id="cart" view="cart">
-	   <transition on="submit" to="shipping"/>
-	</view-state>
-	 
-	<view-state id="shipping" view="shipping">
-	   <transition on="shippingDetailCollected" to="payment"/>
-	</view-state>
-
-	<view-state id="payment" view="payment" >
-		<transition on="orderConfirmed" to="thankyou" />
+	<!-- if not specified the first view state is the starting state -->
+	
+	<view-state id="cartPage" view="shipping" model="flowScope.billingAddress" >
+		<transition on="submit" to="PaymentPage" />
 	</view-state>
 	
-	<action-state id="processOrder">
-        <evaluate expression="cartItemDaoImpl.removeAllCartItems(order.cart)" />
-        <transition to="thankyou" />
-    </action-state>
-	
-	<view-state id="thankyou" >
-        <transition to="endState" />
-    </view-state>
+	<view-state id="PaymentPage" view="payment">
+		<transition on="submit" to="ThankYou" />
+	</view-state>
+	<action-state id="insertAddress">
+		<evaluate expression="addressController.insertAddress(billingAddress,messageContext,cart)"></evaluate>
+		<transition on="success" to="PaymentPage" />
+	</action-state>
+	<view-state id="ThankYou" view="thankyou">
+		<transition on="submit" to="tohome" />
+	</view-state>
 
-    <end-state id="endState" />
+	<end-state id="tohome" view="externalRedirect:contextRelative:/" />
+
 </flow>

@@ -47,7 +47,6 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<tx:annotation-driven />
 
 	<bean id="p" class="one.project.bhoomi_webapp_01.dao.ProductDAOImpl" />
-	<bean id="u" class="one.project.bhoomi_webapp_01.dao.UserDAOImpl" />
 	<bean id="c" class="one.project.bhoomi_webapp_01.dao.CategoryDAOImpl" />
 	<bean id="cartdao" class="one.project.bhoomi_webapp_01.dao.CartDaoImpl" />
 	<bean id="user" class="one.project.bhoomi_webapp_01.dao.UserDAOImpl" />

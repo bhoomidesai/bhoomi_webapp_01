@@ -20,7 +20,7 @@
 					<i class="fa fa-lock"></i>Billing Address
 				</h3>
 
-				<form:form method="POST" action="${cp }/cart/pay" modelAttribute="user">
+				<form:form  class="form-signin" modelAttribute="billingAddress">
 
 					<div class="form-group">
 						<form:input path="streetName" class="form-control" placeholder="Address line 1" required="required" />
@@ -31,9 +31,7 @@
 						<span><form:errors path="apartmentNumber" cssclass="error" style="color:red;" /></span>
 					</div>
 
-					<div class="form-group" align="center">
-					<input type="submit" value="Continue" class="btn btn-primary btn-md btn-block" name="_eventId_shippingDetailCollected" />
-
+					<div class="form-group" align="center"><input class="btn btn-info" name="_eventId_submit" type="submit" value="Next" />
 					</div>
 
 				</form:form>

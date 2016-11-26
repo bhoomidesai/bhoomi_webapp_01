@@ -1,6 +1,8 @@
 
 package one.project.bhoomi_webapp_01.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class BillingAddress {
+public class BillingAddress implements Serializable{
 	@Id
 	@GeneratedValue
 	private int billingAddressId;

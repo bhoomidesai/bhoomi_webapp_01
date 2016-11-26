@@ -17,12 +17,8 @@
             <div ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">
             <br/>
                 <div>
-                    <a class="button button1" ng-click = "clearCart()" > Clear Cart</a>
-                    <a href="${cp }/cart/shipping" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a>
-                    <button type="submit" name="_eventId_submit" class="btn btn-success"> Checkout web <span class="glyphicon glyphicon-play"></span>
-                        </button>
-				
-								<a href="ckeckout">View Cart</a>
+                    <a class="button button1" ng-click = "removeFromCart()" > Clear Cart</a>
+                    <a href="${cp}/customer/rest/cart/StartFlow" class="btn btn-success pull-right"><span class="glyphicon glyphicon-shopping-cart"></span> Check out</a>
 				
                 </div>
 			<br/>

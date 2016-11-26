@@ -15,20 +15,17 @@
 
 	<!--it's say that scan all controller and use it -->
 	<context:component-scan base-package="one.project.bhoomi_webapp_01" />
-	<bean id="HandlerMapping"
-		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+	<bean id="HandlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+	
 	<!-- WebFlow Configuration -->
 	<webflow:flow-executor id="flowExecutor" />
-	<webflow:flow-registry id="flowRegistry"
-		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
-
+	<webflow:flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
 		<webflow:flow-location id="checkout" path="/checkout-flow.xml" />
 	</webflow:flow-registry>
 
 	<webflow:flow-builder-services id="flowBuilderServices"
 		view-factory-creator="viewFactoryCreator" />
-	<bean id="viewFactoryCreator"
-		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+	<bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
 		<property name="viewResolvers">
 			<list>
 				<ref bean="viewResolver" />
@@ -55,8 +52,7 @@
 
 	</bean>
 	<!-- Multipart file size -->
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
 		<!-- setting maximum upload size -->
 		<property name="maxUploadSize" value="100000" />

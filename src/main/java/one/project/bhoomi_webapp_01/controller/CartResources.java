@@ -40,12 +40,12 @@ public class CartResources {
     public @ResponseBody Cart getCartById(@PathVariable(value = "cartId") int cartId){
         return cartdao.getCartById(cartId);
     }
-
+Cart cart;
     @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addItem (@PathVariable(value = "productId") int productId, Principal principal){
         User customer = user.getCustomerByUsername(principal.getName());
-        Cart cart = customer.getCart();
+        cart = customer.getCart();
         
         ProductModel product = p.getById(productId);
         List<CartItem> cartItems = cart.getCartItems();
@@ -84,18 +84,18 @@ public class CartResources {
         Cart cart = cartdao.getCartById(cartId);
         cartitemdao.removeAllCartItems(cart);
     }
-//
-//    @ExceptionHandler(IllegalArgumentException.class)
-//    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Illegal request, please verify your payload")
-//    public void handleClientErrors (Exception ex){
-//
-//    }
-//
-//    @ExceptionHandler(Exception.class)
-//    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Internal Server Error")
-//    public void handleServerErrors (Exception ex){
-//
-//    }
+
+    @RequestMapping("/StartFlow")
+	public String pageFlow() {
+		
+		
+		return "redirect:/checkout";
+	}
+	
+	public Cart initFlow(){
+		//System.out.println(product);
+		return cart;
+	}
 
 
 } // The End of Class;

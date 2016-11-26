@@ -54,7 +54,7 @@
 							<sec:authorize access="hasRole('ROLE_USER')">
 								<li><a href="${cp}/customer/cart/">View Cart</a></li>
 							</sec:authorize> <sec:authorize access="isAnonymous()">
-								<li><a href="checkout">View Cart</a></li>
+								<li><a href="<c:url value="/login" />">View Cart</a></li>
 							</sec:authorize>
 					</span></li>
 			</ul>

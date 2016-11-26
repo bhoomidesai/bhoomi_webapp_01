@@ -7,6 +7,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import one.project.bhoomi_webapp_01.model.BillingAddress;
+
 import one.project.bhoomi_webapp_01.model.*;
 
 @Transactional
@@ -51,6 +53,12 @@ public class UserDAOImpl implements UserDAO{
 		Query query = session.getCurrentSession().createQuery("from User WHERE email=?");
 		query.setParameter(0, username);
 		return (User)query.getSingleResult();
+	}
+	@Override
+	public String insertBillingAddress(BillingAddress ba) {
+
+		session.getCurrentSession().persist(ba);
+		return "inserted";
 	}
 	
 

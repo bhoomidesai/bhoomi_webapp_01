@@ -2,6 +2,8 @@ package one.project.bhoomi_webapp_01.dao;
 
 import java.util.List;
 
+import one.project.bhoomi_webapp_01.model.BillingAddress;
+
 import one.project.bhoomi_webapp_01.model.User;
 
 public interface UserDAO {
@@ -12,5 +14,7 @@ public interface UserDAO {
 
    public List<User> getAllCustomers();
    User getCustomerByUsername(String username);
+   public String insertBillingAddress(BillingAddress ba);
+
 
 }

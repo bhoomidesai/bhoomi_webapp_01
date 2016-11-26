@@ -14,7 +14,7 @@ import one.project.bhoomi_webapp_01.model.User;
 @Controller
 public class SignupController {
 	@Autowired
-	UserDAO u ;
+	UserDAO user ;
 	@RequestMapping(value = "/reg")
 	public String gotreg(Model model){
 		model.addAttribute("user", new User());
@@ -24,7 +24,7 @@ public class SignupController {
 	@PostMapping(value = "/in")
 	public String go(@ModelAttribute ("user") User user1,BindingResult bindingResult, Model model){
 	
-		u.insertUser(user1);	
+		user.insertUser(user1);	
 		
 		return "/login";
 	}

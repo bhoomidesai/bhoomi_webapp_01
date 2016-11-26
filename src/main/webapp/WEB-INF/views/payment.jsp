@@ -4,8 +4,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="cp" value="${pageContext.request.contextPath}" />
 <%@ include file="head.jsp"%>
-<form method="post">
-	<div class="container">
+
+<div class="container">
+<form:form>
+
 		<div class='row'>
 			<div class='col-md-4'></div>
 			<div class='col-md-5'>
@@ -15,6 +17,7 @@
 						type="hidden" value="PUT" /><input name="authenticity_token"
 						type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" />
 				</div>
+				<form role="form" id="payment-form" method="POST" action="javascript:void(0);">
 				<div class='form-row'>
 					<div class='col-xs-12 form-group required'>
 						<label class='control-label'>Name on Card</label> <input
@@ -47,17 +50,16 @@
 				</div>
 				<div class='form-row'>
 					<div class='col-md-12' align="center">
-					<input type="submit" value="Pay" class="btn btn-default" name="_eventId_orderConfirmed" />
-						<%-- <a href="${cp }/cart/ty" class="button button1">Pay</a> --%>
+					<div class="form-group" align="center"><input class="button button1" name="_eventId_submit" type="submit" value="Next" />
 						<span class='amount'></span>
 						<div class='form-row'></div>
 					</div>
 				</div>
-			</div>
+			</div></form>
 		</div>
 	</div>
-</form>
-
-
+	
+</form:form>
+</div>
 <%@ include file="foot.jsp"%>
 
