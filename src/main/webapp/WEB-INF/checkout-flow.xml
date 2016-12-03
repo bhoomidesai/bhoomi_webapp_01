@@ -15,7 +15,7 @@
 		<transition on="submit" to="PaymentPage" />
 	</view-state>
 	
-	<view-state id="PaymentPage" view="payment">
+	<view-state id="PaymentPage" view="payment" model="flowScope.cart">
 		<transition on="submit" to="ThankYou" />
 	</view-state>
 	<action-state id="insertAddress">

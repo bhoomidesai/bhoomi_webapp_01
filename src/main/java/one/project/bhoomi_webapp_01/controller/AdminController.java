@@ -47,7 +47,7 @@ public class AdminController {
 		{
 			model.addAttribute("product",product);
 			model.addAttribute("products",p.getAll());
-			return "admin";
+			return "redirect:/admin/viewall";
 		}
 		
 		if (product.getId() == 0) {
